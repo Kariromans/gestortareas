@@ -1,4 +1,4 @@
-let tasks = JSON.parse(localStorage.getIem("tasks")) || [];
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 // traernos la lista de tareas de almacenamiento local//
 
 //Funcion para agregar una tarea//
@@ -9,7 +9,7 @@ export const addTask = (task) => {
         completed: false,
     };
     tasks.push(newtask);
-    localStorage.setItem("tasks", JSON.stringify(task));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
 //funcion para eliminar una tarea//

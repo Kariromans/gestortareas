@@ -6,11 +6,11 @@ export const renderTasks = () => {
     TaskList.innerHTML = "";
     const tasks = getTasks();
     tasks.forEach((task) => {
-        const li = document.createElement("Li");
+        const li = document.createElement("li");
         li.setAttribute("data-id", task.id)
 
         // añadir clase solo si la tarea esta completada //
-        if (task.complete === true) {
+        if (task.completed === true) {
             li.classList.add("completed");
         }
         li.innerHTML = `
@@ -18,6 +18,6 @@ export const renderTasks = () => {
         <button class= "delete"> Eliminar </button> 
         <button class ="toggle"> ${task.completed === true? "Deshacer" : "completar" }  </button>
         `;
-        TaskList.appendChild(Li);
+        TaskList.appendChild(li);
     });
 };

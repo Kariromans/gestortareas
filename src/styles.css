@@ -1,59 +1,130 @@
-body{
-    font-family:Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0; /* es lo ue rodea el contenedor de nuestra pag*/
-    padding: 0; /*es el espacion que tiene con respecto a su exterior e interior*/
-    height: 100vh;/* medida que abrebia altura de el dispositivo parecido al porcentaje*/
+/* Estilos generales del cuerpo */
+body {
+    font-family: 'Roboto', sans-serif; /* Fuente moderna y profesional */
+    background-color: #f3f4f6; /* Fondo gris suave */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-/*estilos para el contenedor principal*/
+
+/* Estilos para el contenedor principal */
 #app {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow:0 0 10px rgba(0, 0, 0, 1);
+    background-color: #ffffff; /* Fondo blanco limpio */
+    padding: 40px; /* Espaciado generoso */
+    border-radius: 16px; /* Bordes redondeados amplios */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Sombra suave y profunda */
+    max-width: 420px; /* Ancho máximo */
+    width: 100%;
 }
-/*estilos para el formulario*/
+
+/* Estilos para el formulario */
 form {
     display: flex;
-    justify-content: space-between;
+    gap: 12px; /* Espacio entre el input y el botón */
 }
-/*estilos para el input*/
-input {
-    width: 75%;
-    padding: 8px;
-    margin-right: 10px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
+
+/* Estilos para el input de texto */
+input[type="text"] {
+    flex: 1;
+    padding: 14px;
+    border: 2px solid #ced4da; /* Borde más grueso para mayor definición */
+    border-radius: 10px; /* Bordes redondeados */
+    font-size: 18px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-/*estilos para el botton*/
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #6c63ff; /* Borde morado al enfocar */
+    box-shadow: 0 0 10px rgba(108, 99, 255, 0.5); /* Sombra luminosa al enfocar */
+}
+
+/* Estilos para el botón */
 button {
-    padding: 5px 8px;
-    background-color: #007bff;
+    padding: 14px 24px;
+    background-color: #6c63ff; /* Fondo morado elegante */
     color: white;
-    border:none;
-    border-radius: 3px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
-/*estilos lista*/
+
+button:hover {
+    background-color: #5848e8; /* Fondo morado más oscuro en hover */
+    transform: translateY(-2px); /* Levanta el botón en hover */
+    box-shadow: 0 8px 20px rgba(88, 72, 232, 0.4); /* Sombra más fuerte en hover */
+}
+
+button:active {
+    background-color: #3d2fb2; /* Fondo aún más oscuro al presionar */
+    transform: translateY(0); /* Regresa a su posición original */
+    box-shadow: none; /* Elimina la sombra al presionar */
+}
+
+/* Estilos para la lista de tareas */
 ul {
     list-style: none;
     padding: 0;
+    margin-top: 30px; /* Espacio entre el formulario y la lista */
 }
-/*estilos elementos de la lista*/
+
+/* Estilos para cada tarea individual */
 li {
-    background-color: #f4f4f4;
-    padding: 10px;
-    border: 1px solid #ddd;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
     margin-top: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
-/*estilos para cuando una tarea esta completada*/
+
+li:hover {
+    background-color: #e9ecef; /* Fondo gris suave al pasar el cursor */
+    transform: translateX(5px); /* Desplazamiento sutil al pasar el cursor */
+}
+
+/* Estilos para cuando una tarea está completada */
 li.completed {
+    background-color: #d4edda; /* Fondo verde suave para tareas completadas */
     text-decoration: line-through;
-    color: #888;
+    color: #155724; /* Texto verde oscuro para tareas completadas */
+    border-color: #c3e6cb; /* Borde verde claro */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Estilos para el botón de eliminar */
+li button.delete {
+    background-color: #ff6b6b; /* Fondo rojo para el botón de eliminar */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+li button.delete:hover {
+    background-color: #e63946; /* Fondo rojo más oscuro en hover */
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño en hover */
+}
+
+li button.delete:active {
+    background-color: #c71f37; /* Fondo rojo aún más oscuro al presionar */
+    transform: scale(1); /* Regresa al tamaño original */
+}
+
+/* Animación para eliminar la tarea */
+li.removing {
+    opacity: 0; /* Desvanece la tarea antes de eliminarla */
+    transform: translateX(100%); /* Desplaza la tarea hacia la derecha */
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Animación suave */
 }

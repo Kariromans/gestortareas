@@ -1,9 +1,10 @@
 const path = require('path');
 
 module.exports ={
+    mode: 'development', 
     entry: './src/index.js', //punto de entrada de la app// 
 output:{
-    __filename: 'bundle.js' , //files name 
+    filename: 'bundle.js' , //files name 
     path: path.resolve(__dirname, 'dist'), //carpeta de salida //
 },
 module:{
@@ -16,8 +17,8 @@ module:{
             test:/\.js$/, //regex para indentificar archivos JS
         exclude: /node_modules/, 
         use:{
-            loader: ' babel-loader', //loader par pasar old JS a modernos
-        optiones:{
+            loader: 'babel-loader', //loader par pasar old JS a modernos
+        options:{
             presets:['@babel/preset-env'],
         },
         },
@@ -26,7 +27,9 @@ module:{
 },
 devtool:'source-map', // es para generar source maps para facilitar la depuracion
 devServer:{
-    contentBase: path.resolve(__dirname, 'dist'), //Folder servidor
+   static:{
+    directory:path.resolve(__dirname, 'dist'),
+   },
     compress: true, //habilita la compresion zip //
     port: 9000, //puerto del servidor de desarroollo 
 },
